@@ -11,7 +11,7 @@ const MobileFooter = props => {
            </section> 
            <section>
             <h3>Contact</h3>
-            <p><Link to="tel:09068359777">+234 (0) 906-835-9777</Link></p>
+            <p><Link to="tel:09036687238">+234 (0) 903-668-7238</Link></p>
             <p><Link to="mailto:support@tixhub.com">support@tixhub.com</Link></p>
            </section>
            <section className="my-[1.6rem]">
