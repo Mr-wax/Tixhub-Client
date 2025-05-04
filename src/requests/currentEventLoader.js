@@ -1,4 +1,4 @@
-const apiUrl = "https://ticketdorm-server.onrender.com/ticketdorm";
+const apiUrl = "https://tixhub-server.onrender.com/tixhub";
 
 const currentEventLoader = async ({ params }) => {
     try {
