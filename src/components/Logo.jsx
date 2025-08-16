@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AppContext from "../context/AppContext";
-import HeaderLogo from "../assets/tickdorm-header-logo.svg";
-import FooterLogo from "../assets/tickdorm-footer-logo.svg";
+import HeaderLogo from "../assets/tixhub-logo.png";
+import FooterLogo from "../assets/tixhub-footer-logo.png";
 
 const Logo = props => {
     const { setShowProfileDropdown, setDisplayedElement } = useContext(AppContext);
