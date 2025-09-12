@@ -147,9 +147,9 @@ const createEventRequest = async (userInfo, token) => {
     }
 };
 
-const sendTicketEmail = async (eventID, ticketID, transactionID) => {
+const sendTicketEmail = async (eventID, ticketID, reference) => {
     try {
-        const response = await fetch(`${apiUrl}/ticket/verify-payment/event/${eventID}/ticket/${ticketID}/callback?${transactionID}/`),
+        const response = await fetch(`${apiUrl}/ticket/verify-payment/event/${eventID}/ticket/${ticketID}/callback?reference=${reference}`),
         data = await response.json();
             
          return data;

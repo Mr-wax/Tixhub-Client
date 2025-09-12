@@ -9,9 +9,12 @@ const VerifyTicketPayment = () => {
     const { eventID, ticketID, setVerifyPayment } = useContext(AppContext);
 
     useEffect(() => {
-        const transactionID = window.location.href.split("/").pop().slice(10);
-        sendTicketEmail(eventID, ticketID, transactionID);
-    }, []);
+        const url = new URL(window.location.href);
+        const reference = url.searchParams.get("reference");
+        if (reference && eventID && ticketID) {
+            sendTicketEmail(eventID, ticketID, reference);
+        }
+    }, [eventID, ticketID]);
 
     return (
         <HelmetProvider>
