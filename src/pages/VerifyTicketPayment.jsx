@@ -1,20 +1,33 @@
 import { useContext, useEffect } from "react";
 import AppContext from "../context/AppContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { FaCheck } from "react-icons/fa6";
 import { sendTicketEmail } from "../requests/APIRequest";
 
 const VerifyTicketPayment = () => {
     const { eventID, ticketID, setVerifyPayment } = useContext(AppContext);
+    const navigate = useNavigate();
+    const params = useParams();
 
     useEffect(() => {
         const url = new URL(window.location.href);
-        const reference = url.searchParams.get("reference");
+        const queryReference = url.searchParams.get("reference");
+        const paramReference = params?.["callback-reference"]; // supports /verify-payment/:callback-reference
+        const reference = queryReference || paramReference;
+
         if (reference && eventID && ticketID) {
-            sendTicketEmail(eventID, ticketID, reference);
+            sendTicketEmail(eventID, ticketID, reference).catch(() => {});
         }
-    }, [eventID, ticketID]);
+
+        const timer = setTimeout(() => {
+            setVerifyPayment(null);
+            localStorage.removeItem("verifyPayment");
+            navigate("/");
+        }, 5000);
+
+        return () => clearTimeout(timer);
+    }, [eventID, ticketID, params, navigate, setVerifyPayment]);
 
     return (
         <HelmetProvider>
