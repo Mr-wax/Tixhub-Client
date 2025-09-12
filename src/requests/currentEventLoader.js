@@ -7,7 +7,7 @@ const currentEventLoader = async ({ params }) => {
 
         return data.data.event;
     } catch(error) {
-        throw Error("CodeDreadnaught, TicketDorm is unable to fetch this event due to network issues.");
+        throw Error("CodeDreadnaught, Tixhub is unable to fetch this event due to network issues.");
     }
 };
 
