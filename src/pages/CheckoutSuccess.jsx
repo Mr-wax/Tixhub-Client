@@ -59,7 +59,7 @@ export default function CheckoutSuccess() {
                 <div className="p-3 rounded-lg bg-gray-50 sm:col-span-2">
                   <dt className="text-xs uppercase tracking-wide text-gray-500">Delivery</dt>
                   <dd className="mt-1 flex items-center gap-2 text-gray-900">
-                    <FiMail className="text-gray-500" /> E‑ticket sent to <span className="font-medium">{email}</span>
+                    <FiMail className="text-gray-500" /> Ticket delivered to <span className="font-medium">{email}</span>. Check your inbox or spam folder.
                   </dd>
                 </div>
               )}
