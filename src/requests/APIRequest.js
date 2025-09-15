@@ -98,7 +98,7 @@ const resetPasswordRequest = async (userInfo, userID) => {
 
 const buyTicket = async (userInfo, eventID) => {
     try {
-        const response = await fetch(`${apiUrl}/ticket\/buyticket/${eventID}/`, {
+        const response = await fetch(`${apiUrl}/ticket/buyticket/${eventID}/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -147,14 +147,14 @@ const createEventRequest = async (userInfo, token) => {
     }
 };
 
-const sendTicketEmail = async (eventID, ticketID, reference) => {
+const sendTicketEmail = async (eventID, ticketID, transactionID) => {
     try {
-        const response = await fetch(`${apiUrl}/ticket/verify-payment/event/${eventID}/ticket/${ticketID}/callback?reference=${reference}`),
+        const response = await fetch(`${apiUrl}/ticket/verify-payment/event/${eventID}/ticket/${ticketID}/callback?${transactionID}/`),
         data = await response.json();
             
          return data;
     } catch(error) {
-        throw Error(" Tixhub is unable to send ticket email from the server.");
+        throw Error("Tixhub is unable to send ticket email from the server.");
     }
 };
 

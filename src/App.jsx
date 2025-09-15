@@ -1,3 +1,5 @@
+import CheckoutSuccess from "./pages/CheckoutSuccess";
+import CheckoutFailed from "./pages/CheckoutFailed";
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom";
 import { currentEventLoader } from "./requests/currentEventLoader";
 import TriggerAlert from "./utilis/TriggerAlert";
@@ -39,6 +41,8 @@ const App = () => {
         <Route path="/check-email" element={<CheckEmail />} />
         <Route path="/reset-password/:id" element={<ResetPassword />}  />
         <Route path="/checkout-page/:id" element={<CheckoutPage />} loader={currentEventLoader} errorElement={<TriggerAlert />} />
+        <Route path="/checkout/success" element={<CheckoutSuccess />} />
+        <Route path="/checkout/failed" element={<CheckoutFailed />} />
         <Route path="/search" element={<MobileSearchBar />}  />
         <Route element={<ProtectedRoutes />}>
         <Route path="/dashboard" element={<Dashboard />}  />
